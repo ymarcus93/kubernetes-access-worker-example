@@ -1,0 +1,32 @@
+{
+  "name": "kube-proxy-worker",
+  "license": "Apache-2.0",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "build": "tsc --noEmit",
+    "format": "prettier --write 'src/**/*.{ts,js,json,md}'",
+    "format:check": "prettier --check 'src/**/*.{ts,js,json,md}'",
+    "lint": "eslint 'src/**/*.{ts,js}'",
+    "lint:fix": "eslint 'src/**/*.{ts,js}' --fix",
+    "prepare:types": "wrangler types",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "prettier": "^3.5.3",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.54.0"
+  },
+  "dependencies": {
+    "itty-router": "^5.0.22",
+    "jose": "^6.1.3"
+  }
+}

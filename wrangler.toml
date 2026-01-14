@@ -1,0 +1,34 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "kube-proxy-worker"
+main = "src/index.ts"
+compatibility_date = "2025-12-11"
+compatibility_flags = ["nodejs_compat"]
+
+account_id = "<CLOUDFLARE_ACCOUNT_ID>"
+routes = [{ pattern = "kube.mydomain.com/*", zone_name = "mydomain.com" }]
+
+[observability]
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = false
+persist = true
+
+[observability.traces]
+enabled = true
+persist = true
+head_sampling_rate = 0.5
+
+[vars]
+ACCESS_AUD = "<AUD_TAG>"
+ACCESS_TEAM_DOMAIN = "https://my-zt-org.cloudflareaccess.com"
+KUBE_API_SERVER = "http://localhost:8001"
+ENABLE_K8S_LOGGING = "false"
+LOG_LEVEL = "info"
+
+# Uncomment this block post infrastructure setup
+#
+# [[vpc_services]]
+# binding = "KUBE_API"
+# service_id = "<WVPC_SERVICE_ID>"
+# remote = true
